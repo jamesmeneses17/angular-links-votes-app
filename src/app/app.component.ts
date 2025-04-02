@@ -8,5 +8,11 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-links-votes-app';
+
+  addLink(title:string,link:string){
+    console.log('values',title,link);
+    return false;
+  }
 }
+
+
