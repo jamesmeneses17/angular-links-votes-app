@@ -7,8 +7,16 @@ import { Link } from './link.model';
   templateUrl: './link.component.html',
   styleUrls: ['./link.component.css']
 })
-export class LinkComponent  {
+export class LinkComponent implements OnInit {
   @Input() link!: Link;
+
+  contructor(){
+
+  }
+
+  ngOnInit(){
+
+  }
 
   voteUp() {
     this.link.voteUp();
@@ -17,6 +25,8 @@ export class LinkComponent  {
   voteDown() {
     this.link.voteDown();
   }
+
+  
 
 
 }

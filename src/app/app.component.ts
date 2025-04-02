@@ -24,9 +24,10 @@ export class AppComponent {
     console.log(this.links)
   }
 
-  addLink(title: string, link: string) {
-   console.log('values: ',title,link);
-   this.links.push(new Link(title, link)); // Agrega el nuevo enlace
+  addLink(title: HTMLInputElement, link: HTMLInputElement) {
+   this.links.push(new Link(title.value, link.value)); // Agrega el nuevo enlace
+   title.value='';
+   link.value= '';
 
    return false;
 
