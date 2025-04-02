@@ -1,18 +1,40 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Link } from './link/link.model'; // Importa la clase Link
+import { LinkComponent } from './link/link.component'; // Importa LinkComponent
+import { CommonModule } from '@angular/common'; // Importa CommonModule
+
+
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  imports: [CommonModule,LinkComponent] // Asegúrate de que LinkComponent esté importado aquí
 })
 export class AppComponent {
 
-  addLink(title:string,link:string){
-    console.log('values',title,link);
-    return false;
+  links: Link[] ;
+
+  constructor() {
+    this.links =[
+      new Link('Angular', 'http://angular.io', 10),
+      new Link('James', 'http://fullstack.io', 5),
+    ];
+    console.log(this.links)
   }
+
+  addLink(title: string, link: string) {
+   console.log('values: ',title,link);
+   this.links.push(new Link(title, link)); // Agrega el nuevo enlace
+
+   return false;
+
 }
 
 
+sortedLinks() {
+  return this.links.sort((a: Link, b: Link) => b.votes - a.votes);
+}
+
+}

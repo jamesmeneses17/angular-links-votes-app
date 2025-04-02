@@ -4,7 +4,7 @@
 
 <div class="container p-4">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8 offset-md-2">
       <div class="card ">
         <h3 class="card-header mt-2 ">Add A Link</h3>
         <form class="card-body">
@@ -19,4 +19,5 @@
       </div>
     </div>
   </div>
+  <app-link *ngFor="let link of sortedLinks()" [link]="link"></app-link>
 </div>
